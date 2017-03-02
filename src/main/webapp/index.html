@@ -1,0 +1,73 @@
+<!doctype html>
+<html ng-app="todoApp">
+<head>
+    <title>Simple Login - Spring Security</title>
+</head>
+<body ng-controller="MyController">
+    <button ng-click="tes()">Tes</button>
+    <br>
+    <br>
+    <button ng-click="login()">Login</button> | <button ng-click="logout()">Logout</button>
+    <br>
+    <br>
+    <button ng-click="user()">User</button> | <button ng-click="roles()">Roles</button>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+    <script>
+        angular.module('todoApp', [])
+            .config(function ($httpProvider) {
+//                $httpProvider.defaults.withCredentials = true;
+                //rest of route code
+            })
+            .controller('MyController', function($scope, $http) {
+
+                $scope.tes = function () {
+                    $http.get("/tes")
+                        .then(function (response) {
+                           console.debug(response.data);
+                        }, function (error) {
+                            console.error(error.data);
+                        });
+                };
+
+                $scope.login = function () {
+                    $http.post("/login")
+                        .then(function (response) {
+                            console.debug(response.data);
+                        }, function (error) {
+                            console.error(error.data);
+                        });
+                };
+
+                $scope.logout = function () {
+                    $http.post("/logout")
+                        .then(function (response) {
+                            console.debug(response.data);
+                        }, function (error) {
+                            console.debug("asek");
+//                            console.debug(error.data);
+                        });
+                };
+
+                $scope.user = function () {
+                    $http.get("/user")
+                        .then(function (response) {
+                            console.debug(response.data);
+                        }, function (error) {
+                            console.error(error.data);
+                        });
+                };
+
+                $scope.roles = function () {
+                    $http.get("/roles")
+                        .then(function (response) {
+                            console.debug(response.data);
+                        }, function (error) {
+                            console.error(error.data);
+                        });
+                };
+
+            });
+    </script>
+</body>
+</html>
