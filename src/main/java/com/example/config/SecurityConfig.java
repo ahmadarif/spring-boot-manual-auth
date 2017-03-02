@@ -11,7 +11,7 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
  * Created by ARIF on 28-Feb-17.
  */
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true) // supaya bisa pakai @PreAuthorize
+@EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
@@ -26,8 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessHandler(new LogoutSuccess())
                 .deleteCookies("JSESSIONID")
-//                .clearAuthentication(true)
-//                .invalidateHttpSession(true)
+                .invalidateHttpSession(true)
                 .permitAll()
 
                 .and()

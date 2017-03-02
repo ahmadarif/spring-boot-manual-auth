@@ -20,6 +20,9 @@ public class LogoutSuccess implements LogoutSuccessHandler {
 
     @Override
     public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication auth) throws IOException, ServletException {
+        if (auth != null) {
+            request.getSession().invalidate();
+        }
         response.setStatus(HttpServletResponse.SC_OK);
     }
 

@@ -16,8 +16,7 @@
     <script>
         angular.module('todoApp', [])
             .config(function ($httpProvider) {
-//                $httpProvider.defaults.withCredentials = true;
-                //rest of route code
+                $httpProvider.defaults.withCredentials = true;
             })
             .controller('MyController', function($scope, $http) {
 

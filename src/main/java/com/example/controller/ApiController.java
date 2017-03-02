@@ -18,7 +18,7 @@ import java.util.*;
 @RestController
 public class ApiController {
 
-    @PreAuthorize("isAuthenticated()")
+//    @PreAuthorize("isAuthenticated()")
     @GetMapping("/tes")
     public Map tes() {
         Map<String, Object> map = new HashMap<>();
