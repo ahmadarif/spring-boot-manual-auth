@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -17,6 +18,7 @@ import java.util.*;
 @RestController
 public class ApiController {
 
+    @PreAuthorize("isAuthenticated()")
     @GetMapping("/tes")
     public Map tes() {
         Map<String, Object> map = new HashMap<>();
