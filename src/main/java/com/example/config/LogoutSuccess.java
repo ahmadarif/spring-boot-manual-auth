@@ -15,15 +15,11 @@ import java.io.IOException;
 /**
  * Created by ARIF on 28-Feb-17.
  */
-
 public class LogoutSuccess implements LogoutSuccessHandler {
 
     @Override
     public void onLogoutSuccess(HttpServletRequest request, HttpServletResponse response, Authentication auth) throws IOException, ServletException {
-        if (auth != null) {
-            request.getSession().invalidate();
-        }
-        response.setStatus(HttpServletResponse.SC_OK);
+        response.sendRedirect("/");
     }
 
 }

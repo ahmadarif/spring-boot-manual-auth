@@ -41,7 +41,8 @@
                 $scope.logout = function () {
                     $http.post("logout")
                         .then(function (response) {
-                            console.debug(response.data);
+                            console.debug("berhasil logout");
+
                         }, function (error) {
                             console.debug(error.data);
                         });
