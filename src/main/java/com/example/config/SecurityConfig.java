@@ -21,7 +21,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .anyRequest().authenticated()
 
 //                .and().logout().logoutSuccessHandler(new LogoutSuccess()).permitAll() // logout ok, gak bisa langsung login, kecuali hit ke yang butuh role terlebih dahulu
-                .and().logout().permitAll() // logout error 403, tapi auth aplikasi berjalan normal
+                .and().logout().permitAll() // logout error 405, tapi auth aplikasi berjalan normal
 
                 .and().csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
     }
