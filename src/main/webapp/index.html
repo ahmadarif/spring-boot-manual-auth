@@ -39,7 +39,7 @@
                 };
 
                 $scope.logout = function () {
-                    $http.post("/logout")
+                    $http.post("logout")
                         .then(function (response) {
                             console.debug(response.data);
                         }, function (error) {
