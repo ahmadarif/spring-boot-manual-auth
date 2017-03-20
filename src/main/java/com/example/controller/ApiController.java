@@ -1,6 +1,5 @@
 package com.example.controller;
 
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -49,6 +48,11 @@ public class ApiController {
     @GetMapping("/user")
     public Object user(Authentication auth) {
         return auth;
+    }
+
+    @PostMapping("/post")
+    public Object testPost() {
+        return "OK";
     }
 
 }

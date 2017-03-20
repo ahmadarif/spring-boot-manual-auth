@@ -10,7 +10,9 @@
     <button ng-click="login()">Login</button> | <button ng-click="logout()">Logout</button>
     <br>
     <br>
-    <button ng-click="user()">User</button> | <button ng-click="roles()">Roles</button>
+    <button ng-click="user()">User</button>
+    | <button ng-click="roles()">Roles</button>
+    | <button ng-click="testPost()">Post</button>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
     <script>
@@ -39,7 +41,7 @@
                 };
 
                 $scope.logout = function () {
-                    $http.post("logout")
+                    $http.post("/logout")
                         .then(function (response) {
                             console.debug("berhasil logout");
 
@@ -59,6 +61,15 @@
 
                 $scope.roles = function () {
                     $http.get("/roles")
+                        .then(function (response) {
+                            console.debug(response.data);
+                        }, function (error) {
+                            console.error(error.data);
+                        });
+                };
+
+                $scope.testPost = function () {
+                    $http.post("/post")
                         .then(function (response) {
                             console.debug(response.data);
                         }, function (error) {
